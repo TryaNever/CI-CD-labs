@@ -1,0 +1,6 @@
+name: continious_deployment
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:

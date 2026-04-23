@@ -26,5 +26,5 @@ jobs:
           file: ./backend/Dockerfile
           push: true
           tags: |
-            yasby755/docker-express:backend-latest
-            yasby755/docker-express:backend-${{ github.sha }}
+            tryanever/ci_cd-lab:backend-latest
+            tryanever/ci_cd-lab:backend-${{ github.sha }}

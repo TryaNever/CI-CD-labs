@@ -39,7 +39,6 @@ lint-docker%:
 	@echo "exec lint test: $*"
 	@docker compose exec -T $* npm run lint
 
-
-lint:
-	@echo "Run lint"
-	@npm run lint
+lint-%:
+	@echo "exec lint test: $*"
+	@cd $* && npm run lint

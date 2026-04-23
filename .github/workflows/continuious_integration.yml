@@ -40,4 +40,5 @@ jobs:
         working-directory: ./backend
 
       - name: Run linter
-        run: make lint-backend
+        run: make lint
+        working-directory: ./backend

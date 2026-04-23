@@ -42,3 +42,7 @@ lint-docker%:
 lint-%:
 	@echo "exec lint test: $*"
 	@cd \$*\ && npm run lint
+
+lint:
+	@echo "Run lint"
+	@npm run lint

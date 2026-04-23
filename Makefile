@@ -3,10 +3,10 @@ hello:
 	@echo "Hello, Yacine"
 
 # Install
-install:
+install-%:
 	@echo "copy .env"
 	@copy .env.example .env
-	@copy frontend\.env.example frontend\.env
+	@copy $*\.env.example $*\.env
 
 start:
 	@echo "Starting the application..."
@@ -41,4 +41,4 @@ lint-docker%:
 
 lint-%:
 	@echo "exec lint test: $*"
-	@cd .\$*\ && npm run lint
+	@cd \$*\ && npm run lint

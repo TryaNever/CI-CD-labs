@@ -3,10 +3,13 @@ hello:
 	@echo "Hello, Yacine"
 
 # Install
-install:
+copy-env-%:
 	@echo "copy .env"
 	@copy .env.example .env
-	@copy frontend\.env.example frontend\.env
+	@copy $*\.env.example $*\.env
+
+install-%:
+	@cd $* && npm ci
 
 start:
 	@echo "Starting the application..."
@@ -35,6 +38,14 @@ exec-it-container:
 	@echo "exec container interactive: $(SERVICE)"
 	@docker compose exec -it $(word 2,$(MAKECMDGOALS)) sh
 
-lint-%:
-	@echo "exec lint container: $*"
+lint-docker%:
+	@echo "exec lint test: $*"
 	@docker compose exec -T $* npm run lint
+
+lint-%:
+	@echo "exec lint test: $*"
+	@cd $* && npm run lint
+
+jest-%:
+	@echo "exec jest test: $*"
+	@cd $* && npm run test

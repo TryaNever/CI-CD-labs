@@ -35,6 +35,10 @@ exec-it-container:
 	@echo "exec container interactive: $(SERVICE)"
 	@docker compose exec -it $(word 2,$(MAKECMDGOALS)) sh
 
-lint-%:
+lint-docker%:
 	@echo "exec lint test: $*"
 	@docker compose exec -T $* npm run lint
+
+lint-%:
+	@echo "exec lint test: $*"
+	@cd .\$*\ && npm run lint

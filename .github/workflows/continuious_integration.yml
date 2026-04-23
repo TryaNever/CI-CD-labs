@@ -56,3 +56,20 @@ jobs:
 
       - name: Run tests
         run: make jest-backend
+
+  test-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: make install-frontend
+
+      - name: Run tests
+        run: make jest-frontend

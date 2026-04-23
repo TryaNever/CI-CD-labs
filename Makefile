@@ -3,7 +3,7 @@ hello:
 	@echo "Hello, Yacine"
 
 # Install
-install-env-%:
+copy-env-%:
 	@echo "copy .env"
 	@copy .env.example .env
 	@copy $*\.env.example $*\.env
@@ -45,3 +45,7 @@ lint-docker%:
 lint-%:
 	@echo "exec lint test: $*"
 	@cd $* && npm run lint
+
+jest-%:
+	@echo "exec jest test: $*"
+	@cd $* && npm run test

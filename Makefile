@@ -3,10 +3,13 @@ hello:
 	@echo "Hello, Yacine"
 
 # Install
-install-%:
+install-env-%:
 	@echo "copy .env"
 	@copy .env.example .env
 	@copy $*\.env.example $*\.env
+
+install-%:
+	@cd $* && npm ci
 
 start:
 	@echo "Starting the application..."

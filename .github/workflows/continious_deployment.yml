@@ -1,4 +1,4 @@
-name: continious_deployment
+name: image-builder
 on:
   push:
     branches: [main]
